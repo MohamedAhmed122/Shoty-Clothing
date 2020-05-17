@@ -1,6 +1,6 @@
 import React from "react";
 import SigIn from "../../Components/Sign-in/Sign-in-component";
-import "./Sign-inand-out.style.scss";
+import "./SignIn-style.scss";
 
 const SignPage = () => (
   <div>
