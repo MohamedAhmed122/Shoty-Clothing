@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./Menu-item.style.scss";
 
 const Menu = ({ title, img, size }) => (
@@ -10,6 +9,7 @@ const Menu = ({ title, img, size }) => (
         backgroundImage: `url(${img}) `,
       }}
     />
+
     <div className="cantainer">
       <h3 className="title">{title.toUpperCase()}</h3>
       <span className="subtitle">SHOP NOW</span>
