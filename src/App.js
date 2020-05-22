@@ -5,7 +5,8 @@ import HomePage from "./Pages/HomePage.Component/HomePage.component"
 import ShopPage from "./Pages/ShopPage/ShopPage.component"
 import SignPage from "./Pages/SignIn-Page/SignIn-Page"
 import Header from "./Components/Header/Headr.component"
-import { auth } from "./firebase/firebase.utils"
+
+import { auth,createUserProfileDocument } from "./firebase/firebase.utils"
 
 class  App extends React.Component{
   constructor() {
@@ -20,10 +21,24 @@ class  App extends React.Component{
   componentDidMount(){
     // here we are fetching the data from the firebase 
     // replac the value of currentUSer(null) to the user in the firebase when user sign in with google
-    auth.onAuthStateChanged((user)=>{
-      this.setState({currentUser : user})
-      console.log(user);
+   this.unsubscribeFromAuth= auth.onAuthStateChanged(async userAuth=>{
+   
+    if(userAuth){
+      const userRef = await createUserProfileDocument(userAuth);
+      userRef.onSnapshot(snapShot=>{
+        this.setState({
+          currentUser: {
+            id :snapShot.id,
+            ...snapShot.data()
+          }
+        })
+        console.log(this.state)
+      });
+    }else{
+      this.setState({currentUser :userAuth});
+    }
     })
+    
   }
 
   // to prevent leaks memory we have to close subscripation
