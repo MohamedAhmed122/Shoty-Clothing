@@ -70,6 +70,7 @@ class App extends React.Component {
   const mapStateToPtops = state =>({
     currentUser: state.user.currentUser
   })
+  //now we are going to connect our app  by caliing the second argument
   const mapDispatchToProps = dispatch => ({
     setCurrentUser: user => dispatch(setCurrentUser(user))
   })
