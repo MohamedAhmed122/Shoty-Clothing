@@ -1,14 +1,16 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+
+import CartIcon from "../Cart-Icon/Cart-Icon.component";
+import CartDropdown from "../Cart-dropdown/Cart-dropdown.component";
+
 import { ReactComponent as Logo } from "../../assets/image/original.svg";
 
 import { auth } from "../../firebase/firebase.utils";
 
 import { connect } from "react-redux";
 
-import CartIcon from "../Cart-icon/Cart-Icon.component";
-import CartDropdown from "../Cart-Dropdown/Cart-dropdown.component";
 import "./Header.Style.scss";
 
 const Header = ({ currentUser, hidden }) => (
@@ -29,7 +31,7 @@ const Header = ({ currentUser, hidden }) => (
         </div>
       ) : (
         <Link className="option" to="/sign">
-          SIGN IN 
+          SIGN IN
         </Link>
       )}
       <CartIcon />
