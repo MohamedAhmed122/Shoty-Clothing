@@ -1,14 +1,19 @@
 import React from 'react';
-import './App.css';
+
+
 import {
   Switch,
   Route,
   Redirect
 } from 'react-router-dom';
+
 import HomePage from "./Pages/HomePage.Component/HomePage.component"
 import ShopPage from "./Pages/ShopPage/ShopPage.component"
 import SignPage from "./Pages/SignIn-Page/SignIn-Page"
+import CheckoutPage from './Pages/Checkout/checkout'
+
 import Header from "./Components/Header/Headr.component"
+
 import {
   connect
 } from 'react-redux';
@@ -21,6 +26,8 @@ import {
   createUserProfileDocument
 } from "./firebase/firebase.utils"
 
+
+import './App.css';
 
 
 class App extends React.Component {
@@ -61,6 +68,7 @@ class App extends React.Component {
                render={()=> this.props.currentUser? 
                <Redirect to='/' /> : <SignPage />} 
               />
+              <Route path='/checkout'component={CheckoutPage} />
           </Switch>
         </div>
       );
