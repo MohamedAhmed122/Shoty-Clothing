@@ -28,12 +28,7 @@ class SignIn extends React.Component {
   };
 
   handleChange = (e) => {
-    // the value will be the password or email that user typede fo ex
-    // pasword(name) => mohamed12355
     const { value, name } = e.target;
-    // in the state we have 2 elements email and password
-    // here the elemats are coming from the name
-    // so we are setthing the name(password) to the value mohamed12355
     this.setState({ [name]: value });
   };
 
