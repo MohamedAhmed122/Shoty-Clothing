@@ -1,5 +1,4 @@
-// reducer is just a function to get two props it gets a state object which present last state and
-// action this action will have 2 props one for type and one or paylaod(update)
+
 
 const INITIAL_STATE = {
     currentUser: null
